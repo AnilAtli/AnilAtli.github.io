@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 type Project = {
   id: string;
   index: string;
-  type: "Independent" | "Publisher" | "Prototype";
+  type: "Puzzle" | "Strategy" | "Simulation";
   year: string;
   title: string;
   subtitle: string;
@@ -14,61 +14,81 @@ type Project = {
   focus: string[];
   outcome: string;
   visual: "arena" | "world" | "lab";
+  artwork: string;
+  publisher: string;
+  downloads: string;
+  appStore: string;
+  googlePlay: string;
 };
 
 const projects: Project[] = [
   {
-    id: "nightshift",
+    id: "drop-away",
     index: "01",
-    type: "Independent",
-    year: "DESIGN + DEVELOPMENT",
-    title: "NIGHTSHIFT",
-    subtitle: "A systems-first action game",
+    type: "Puzzle",
+    year: "ROLLIC GAMES",
+    title: "DROP AWAY",
+    subtitle: "Color Puzzle",
     statement:
-      "Designed the core loop, tuned moment-to-moment combat, and built the playable experience end to end.",
-    role: "Solo Game Designer & Developer",
-    focus: ["Core loop", "Combat systems", "Level pacing"],
-    outcome: "From blank page to a testable vertical slice.",
+      "A vibrant color-matching puzzle built around spatial reasoning, clean interactions, and progressively layered challenges.",
+    role: "Game Design Portfolio Title",
+    focus: ["Puzzle systems", "Level progression", "Difficulty pacing"],
+    outcome: "1M+ downloads on Google Play.",
     visual: "arena",
+    artwork: "/drop-away.jpg",
+    publisher: "Rollic Games",
+    downloads: "1M+",
+    appStore: "https://apps.apple.com/us/app/drop-away-color-puzzle/id6648791704",
+    googlePlay: "https://play.google.com/store/apps/details?id=com.brewgames.dropaway",
   },
   {
-    id: "worlds",
+    id: "battle-bag",
     index: "02",
-    type: "Publisher",
-    year: "PRODUCTION WORK",
-    title: "PUBLISHED WORLDS",
-    subtitle: "Design work for major publishers",
+    type: "Strategy",
+    year: "VOODOO",
+    title: "BATTLE BAG",
+    subtitle: "War Zone",
     statement:
-      "Translated product goals into clear player-facing systems, collaborating across design, art, and engineering.",
-    role: "Game Designer",
-    focus: ["Feature design", "Documentation", "Cross-team delivery"],
-    outcome: "Production-ready design within real constraints.",
+      "A tactical backpack strategy game where loadout placement, unit connections, and smart upgrades shape every auto-battle.",
+    role: "Game Design Portfolio Title",
+    focus: ["Inventory strategy", "Unit synergy", "Combat balance"],
+    outcome: "1M+ downloads on Google Play.",
     visual: "world",
+    artwork: "/battle-bag.jpg",
+    publisher: "Voodoo",
+    downloads: "1M+",
+    appStore: "https://apps.apple.com/us/app/battle-bag-war-zone/id6746075769",
+    googlePlay: "https://play.google.com/store/apps/details?id=com.brewgames.battlebagwarzone",
   },
   {
-    id: "sixty",
+    id: "miner-tycoon",
     index: "03",
-    type: "Prototype",
-    year: "RAPID R&D",
-    title: "60-SECOND ARENA",
-    subtitle: "A compact combat prototype",
+    type: "Simulation",
+    year: "BREW GAMES",
+    title: "MINER TYCOON",
+    subtitle: "Big Dynamite",
     statement:
-      "Built to answer one question fast: can a single mechanic create escalating tactical decisions in one minute?",
-    role: "Game Designer & Prototyper",
-    focus: ["Rapid iteration", "Balance", "Playtesting"],
-    outcome: "A focused prototype that made the next decision obvious.",
+      "An explosive mining tycoon experience combining discovery, production chains, collection, and long-term progression.",
+    role: "Game Design Portfolio Title",
+    focus: ["Tycoon progression", "Economy design", "Content systems"],
+    outcome: "1M+ downloads on Google Play.",
     visual: "lab",
+    artwork: "/miner-tycoon.jpg",
+    publisher: "Brew Games",
+    downloads: "1M+",
+    appStore: "https://apps.apple.com/us/app/miner-tycoon-big-dynamite/id1624886117",
+    googlePlay: "https://play.google.com/store/apps/details?id=com.brewgames.minertycoonbigdynamite",
   },
 ];
 
-const filters = ["All", "Independent", "Publisher", "Prototype"] as const;
+const filters = ["All", "Puzzle", "Strategy", "Simulation"] as const;
 
-function ProjectVisual({ variant }: { variant: Project["visual"] }) {
+function ProjectVisual({ project }: { project: Project }) {
   return (
-    <div className={`project-visual visual-${variant}`} aria-hidden="true">
+    <div className={`project-visual visual-${project.visual}`}>
       <div className="visual-hud">
-        <span>PLAYABLE BUILD</span>
-        <span>● LIVE</span>
+        <span>{project.publisher}</span>
+        <span>● RELEASED</span>
       </div>
       <div className="visual-stage">
         <span className="orb orb-a" />
@@ -76,10 +96,11 @@ function ProjectVisual({ variant }: { variant: Project["visual"] }) {
         <span className="orb orb-c" />
         <span className="player-marker"><i /></span>
         <span className="scanline" />
+        <img className="game-artwork" src={project.artwork} alt={`${project.title} app icon`} />
       </div>
       <div className="visual-footer">
-        <span>DESIGN VIEW</span>
-        <span>01 — 04</span>
+        <span>AVAILABLE NOW</span>
+        <span>{project.downloads} DOWNLOADS</span>
       </div>
     </div>
   );
@@ -94,7 +115,7 @@ function ProjectCard({ project, onOpen }: { project: Project; onOpen: () => void
           <span>{project.type}</span>
           <span>{project.year}</span>
         </div>
-        <ProjectVisual variant={project.visual} />
+        <ProjectVisual project={project} />
         <div className="project-copy">
           <div>
             <h3>{project.title}</h3>
@@ -103,6 +124,13 @@ function ProjectCard({ project, onOpen }: { project: Project; onOpen: () => void
           <span className="round-arrow" aria-hidden="true">↗</span>
         </div>
       </button>
+      <div className="project-store-row">
+        <span className="download-stat"><b>{project.downloads}</b> Google Play downloads</span>
+        <div>
+          <a href={project.appStore} target="_blank" rel="noreferrer" aria-label={`${project.title} on the App Store`}>App Store ↗</a>
+          <a href={project.googlePlay} target="_blank" rel="noreferrer" aria-label={`${project.title} on Google Play`}>Google Play ↗</a>
+        </div>
+      </div>
     </article>
   );
 }
@@ -178,7 +206,7 @@ export default function Home() {
             <span className="kicker">01 / SELECTED WORK</span>
             <h2>Games with<br />a point of view.</h2>
           </div>
-          <p>A mix of self-directed games, publisher work, and fast prototypes—each shaped around a clear player experience.</p>
+          <p>Three published mobile titles—built around tactile systems, clear player decisions, and production-ready design.</p>
         </div>
 
         <div className="filters" role="group" aria-label="Filter projects">
@@ -270,13 +298,17 @@ export default function Home() {
             <button className="case-close" onClick={() => setActiveProject(null)} aria-label="Close case study">×</button>
             <span className="kicker">{activeProject.index} / {activeProject.type}</span>
             <h2 id="case-title">{activeProject.title}</h2>
-            <ProjectVisual variant={activeProject.visual} />
+            <ProjectVisual project={activeProject} />
             <div className="case-details">
               <div><span>MY ROLE</span><p>{activeProject.role}</p></div>
               <div><span>DESIGN FOCUS</span><p>{activeProject.focus.join(" · ")}</p></div>
             </div>
             <p className="case-statement">{activeProject.statement}</p>
             <div className="case-outcome"><span>OUTCOME</span><p>{activeProject.outcome}</p></div>
+            <div className="case-store-links">
+              <a href={activeProject.appStore} target="_blank" rel="noreferrer">View on the App Store ↗</a>
+              <a href={activeProject.googlePlay} target="_blank" rel="noreferrer">View on Google Play ↗</a>
+            </div>
           </article>
         </div>
       )}
