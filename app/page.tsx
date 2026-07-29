@@ -31,7 +31,7 @@ const projects: Project[] = [
     subtitle: "Color Puzzle",
     statement:
       "A vibrant color-matching puzzle built around spatial reasoning, clean interactions, and progressively layered challenges.",
-    role: "Game Design Portfolio Title",
+    role: "Game Designer",
     focus: ["Puzzle systems", "Level progression", "Difficulty pacing"],
     outcome: "1M+ downloads on Google Play.",
     visual: "arena",
@@ -50,7 +50,7 @@ const projects: Project[] = [
     subtitle: "War Zone",
     statement:
       "A tactical backpack strategy game where loadout placement, unit connections, and smart upgrades shape every auto-battle.",
-    role: "Game Design Portfolio Title",
+    role: "Game Designer",
     focus: ["Inventory strategy", "Unit synergy", "Combat balance"],
     outcome: "1M+ downloads on Google Play.",
     visual: "world",
@@ -69,7 +69,7 @@ const projects: Project[] = [
     subtitle: "Big Dynamite",
     statement:
       "An explosive mining tycoon experience combining discovery, production chains, collection, and long-term progression.",
-    role: "Game Design Portfolio Title",
+    role: "Game Designer",
     focus: ["Tycoon progression", "Economy design", "Content systems"],
     outcome: "1M+ downloads on Google Play.",
     visual: "lab",
