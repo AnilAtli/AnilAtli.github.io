@@ -56,7 +56,7 @@ const games: Game[] = [
     subtitle: "Big Dynamite",
     genre: "Simulation",
     publisher: "Brew Games",
-    artwork: "/miner-tycoon.jpg",
+    artwork: "/miner-tycoon.png",
     screenshot: "/miner-tycoon-hero.jpg",
     description: "An explosive mining tycoon experience combining discovery, production chains, collection, and long-term progression.",
     focus: "Tycoon progression · Economy design · Content systems",
@@ -64,6 +64,30 @@ const games: Game[] = [
     appStore: "https://apps.apple.com/us/app/miner-tycoon-big-dynamite/id1624886117",
     googlePlay: "https://play.google.com/store/apps/details?id=com.brewgames.minertycoonbigdynamite",
   },
+];
+
+type Prototype = {
+  id: string;
+  name: string;
+  artwork: string;
+  appStore: string;
+};
+
+const prototypes: Prototype[] = [
+  { id: "6759793094", name: "Warship Master Arena!", artwork: "/prototypes/6759793094.jpg", appStore: "https://apps.apple.com/tr/app/warship-master-arena/id6759793094?l=tr" },
+  { id: "6756562405", name: "Fall of the Ages", artwork: "/prototypes/6756562405.jpg", appStore: "https://apps.apple.com/tr/app/fall-of-the-ages/id6756562405?l=tr" },
+  { id: "6756109998", name: "Space: Hole Squad", artwork: "/prototypes/6756109998.jpg", appStore: "https://apps.apple.com/tr/app/space-hole-squad/id6756109998?l=tr" },
+  { id: "6753949871", name: "Fill Defense: Bouncy Balls", artwork: "/prototypes/6753949871.jpg", appStore: "https://apps.apple.com/tr/app/fill-defense-bouncy-balls/id6753949871?l=tr" },
+  { id: "6753219302", name: "Swipe Heroes: City Battle", artwork: "/prototypes/6753219302.jpg", appStore: "https://apps.apple.com/tr/app/swipe-heroes-city-battle/id6753219302?l=tr" },
+  { id: "6752393093", name: "Trap Defense: Stop Them!", artwork: "/prototypes/6752393093.jpg", appStore: "https://apps.apple.com/tr/app/trap-defense-stop-them/id6752393093?l=tr" },
+  { id: "6751239129", name: "Boat Defense: Bag Blast", artwork: "/prototypes/6751239129.jpg", appStore: "https://apps.apple.com/tr/app/boat-defense-bag-blast/id6751239129?l=tr" },
+  { id: "6749848532", name: "Helix Fight", artwork: "/prototypes/6749848532.jpg", appStore: "https://apps.apple.com/tr/app/helix-fight/id6749848532?l=tr" },
+  { id: "6748298946", name: "Hexile TD", artwork: "/prototypes/6748298946.jpg", appStore: "https://apps.apple.com/tr/app/hexile-td/id6748298946?l=tr" },
+  { id: "6747806273", name: "Bouncy Dice: Loop Defense", artwork: "/prototypes/6747806273.jpg", appStore: "https://apps.apple.com/tr/app/bouncy-dice-loop-defense/id6747806273?l=tr" },
+  { id: "6747190560", name: "Dice Cannon: Battle Roll", artwork: "/prototypes/6747190560.jpg", appStore: "https://apps.apple.com/tr/app/dice-cannon-battle-roll/id6747190560?l=tr" },
+  { id: "6742712617", name: "Go Go Hero!", artwork: "/prototypes/6742712617.jpg", appStore: "https://apps.apple.com/tr/app/go-go-hero/id6742712617?l=tr" },
+  { id: "6741387527", name: "Super TD Bros", artwork: "/prototypes/6741387527.jpg", appStore: "https://apps.apple.com/tr/app/super-td-bros/id6741387527?l=tr" },
+  { id: "6740339420", name: "Bullet Merge Master", artwork: "/prototypes/6740339420.jpg", appStore: "https://apps.apple.com/tr/app/bullet-merge-master/id6740339420?l=tr" },
 ];
 
 export default function Home() {
@@ -90,6 +114,7 @@ export default function Home() {
         </a>
         <nav className={menuOpen ? "open" : ""} aria-label="Primary navigation">
           <a href="#games" onClick={() => setMenuOpen(false)}>Games</a>
+          <a href="#prototypes" onClick={() => setMenuOpen(false)}>Prototypes</a>
           <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
           <a href="#expertise" onClick={() => setMenuOpen(false)}>Expertise</a>
           <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
@@ -142,9 +167,9 @@ export default function Home() {
       </section>
 
       <section className="games" id="games">
-        <div className="section-intro">
-          <span>SELECTED WORK / 2022—2026</span>
-          <h2>I MAKE<br />GAMES<span>.</span></h2>
+        <div className="section-intro global-launch-intro">
+          <span>GLOBAL RELEASES / 3 TITLES</span>
+          <h2>GLOBAL LAUNCH GAMES<span>.</span></h2>
           <p>Published titles shaped around clear player decisions, satisfying feedback, and systems that hold up in production.</p>
         </div>
 
@@ -157,7 +182,9 @@ export default function Home() {
                 <h4>{game.subtitle}</h4>
                 <p>{game.description}</p>
                 <div className="game-focus">
-                  <span>DESIGN FOCUS</span>
+                  <span>ROLE</span>
+                  <strong>Game Designer</strong>
+                  <span className="focus-label">DESIGN FOCUS</span>
                   <strong>{game.focus}</strong>
                 </div>
                 <div className="store-links">
@@ -172,6 +199,26 @@ export default function Home() {
                 <span className="stage-ring ring-two" />
               </div>
             </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="prototypes" id="prototypes">
+        <div className="prototype-intro">
+          <h2>MY<br />PROTOTYPES<span>.</span></h2>
+        </div>
+
+        <div className="prototype-grid">
+          {prototypes.map((prototype, index) => (
+            <a className="prototype-card" href={prototype.appStore} target="_blank" rel="noreferrer" key={prototype.id} aria-label={`Open ${prototype.name} on the App Store`}>
+              <img src={prototype.artwork} alt={`${prototype.name} app icon`} />
+              <div className="prototype-card-copy">
+                <span>PROTOTYPE {String(index + 1).padStart(2, "0")}</span>
+                <h3>{prototype.name}</h3>
+                <small>ROLE · GAME DESIGNER</small>
+              </div>
+              <b aria-hidden="true">↗</b>
+            </a>
           ))}
         </div>
       </section>
