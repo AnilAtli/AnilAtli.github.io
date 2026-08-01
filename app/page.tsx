@@ -103,6 +103,23 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    if (!menuOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [menuOpen]);
+
+  useEffect(() => {
     if (window.location.hostname.endsWith("github.io")) return;
 
     const sessionKey = "portfolio-location-visit-recorded";
@@ -139,14 +156,14 @@ export default function Home() {
         </div>
       </aside>
       <header className="topbar">
-        <nav className={menuOpen ? "open" : ""} aria-label="Primary navigation">
+        <nav id="primary-navigation" className={menuOpen ? "open" : ""} aria-label="Primary navigation">
           <a href="#games" onClick={() => setMenuOpen(false)}>Games</a>
           <a href="#prototypes" onClick={() => setMenuOpen(false)}>Prototypes</a>
           <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
           <a href="#expertise" onClick={() => setMenuOpen(false)}>Expertise</a>
           <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
         </nav>
-        <button className="menu" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu" aria-expanded={menuOpen}>
+        <button className="menu" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? "Close menu" : "Open menu"} aria-controls="primary-navigation" aria-expanded={menuOpen}>
           <span /><span />
         </button>
       </header>
