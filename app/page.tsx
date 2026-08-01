@@ -89,8 +89,9 @@ const prototypes: Prototype[] = [
   { id: "6742712617", name: "Go Go Hero!", artwork: "/prototypes/6742712617.jpg", appStore: "https://apps.apple.com/tr/app/go-go-hero/id6742712617?l=tr" },
   { id: "6741387527", name: "Super TD Bros", artwork: "/prototypes/6741387527.jpg", appStore: "https://apps.apple.com/tr/app/super-td-bros/id6741387527?l=tr" },
   { id: "6740339420", name: "Bullet Merge Master", artwork: "/prototypes/6740339420.jpg", appStore: "https://apps.apple.com/tr/app/bullet-merge-master/id6740339420?l=tr" },
-  { id: "6480042544", name: "Doodlemoji", artwork: "/prototypes/6480042544.jpg", appStore: "https://apps.apple.com/tr/app/doodlemoji/id6480042544?l=tr", role: "GAME DEVELOPER" },
   { id: "1496924171", name: "Draw Hit", artwork: "/prototypes/1496924171.jpg", appStore: "https://apps.apple.com/tr/app/draw-hit/id1496924171?l=tr", role: "GAME DEVELOPER" },
+  { id: "6480042544", name: "Doodlemoji", artwork: "/prototypes/6480042544.jpg", appStore: "https://apps.apple.com/tr/app/doodlemoji/id6480042544?l=tr", role: "GAME DEVELOPER" },
+  { id: "6737980296", name: "Pipe And Pop", artwork: "/prototypes/6737980296.jpg", appStore: "https://apps.apple.com/tr/app/pipe-and-pop/id6737980296?l=tr", role: "GAME DEVELOPER" },
 ];
 
 export default function Home() {
