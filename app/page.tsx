@@ -107,11 +107,18 @@ export default function Home() {
 
   return (
     <main>
-      <header className="topbar">
-        <a className="brand" href="#top" aria-label="Home">
-          <span>YN</span>
-          <strong>YOUR NAME</strong>
+      <aside className="profile-strip" aria-label="Profile and contact information">
+        <a className="profile-strip-person" href="https://www.linkedin.com/in/anilatli/" target="_blank" rel="noreferrer">
+          <img src="/anil-atli-profile.jpg" alt="Anıl Atlı" />
+          <span><strong>ANIL ATLI</strong><small>GAME DESIGNER</small></span>
         </a>
+        <div className="profile-strip-contact">
+          <a href="mailto:mr.atli.anil@gmail.com"><small>EMAIL</small><strong>mr.atli.anil@gmail.com</strong></a>
+          <a href="tel:+905319578411"><small>PHONE</small><strong>0531 957 84 11</strong></a>
+          <span className="profile-location"><small>LOCATION</small><strong>ISTANBUL</strong></span>
+        </div>
+      </aside>
+      <header className="topbar">
         <nav className={menuOpen ? "open" : ""} aria-label="Primary navigation">
           <a href="#games" onClick={() => setMenuOpen(false)}>Games</a>
           <a href="#prototypes" onClick={() => setMenuOpen(false)}>Prototypes</a>
@@ -255,10 +262,10 @@ export default function Home() {
       <footer id="contact">
         <div className="contact-top"><span>CONTACT</span><span>OPEN TO SELECTED OPPORTUNITIES</span></div>
         <h2>LET’S MAKE<br /><em>SOMETHING PLAYABLE.</em></h2>
-        <a className="email" href="mailto:hello@yourname.com"><span>hello@yourname.com</span><b>↗</b></a>
+        <a className="email" href="mailto:mr.atli.anil@gmail.com"><span>mr.atli.anil@gmail.com</span><b>↗</b></a>
         <div className="footer-row">
-          <span>© 2026 YOUR NAME</span>
-          <div><a href="#">LINKEDIN</a><a href="#">ITCH.IO</a><a href="#">STEAM</a></div>
+          <span>© 2026 ANIL ATLI</span>
+          <div><a href="https://www.linkedin.com/in/anilatli/" target="_blank" rel="noreferrer">LINKEDIN</a><a href="#">ITCH.IO</a><a href="#">STEAM</a></div>
           <a href="#top">BACK TO TOP ↑</a>
         </div>
       </footer>
