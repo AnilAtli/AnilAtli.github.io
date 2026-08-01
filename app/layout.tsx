@@ -15,6 +15,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title,
   description,
+  icons: {
+    icon: [{ url: "/anil-atli-favicon.png", type: "image/png", sizes: "128x128" }],
+    shortcut: "/anil-atli-favicon.png",
+    apple: [{ url: "/anil-atli-favicon.png", type: "image/png", sizes: "128x128" }],
+  },
   openGraph: {
     title,
     description,
