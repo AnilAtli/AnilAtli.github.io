@@ -5,7 +5,6 @@ import { fileURLToPath } from "node:url";
 
 const projectRoot = dirname(dirname(fileURLToPath(import.meta.url)));
 const serverOnlyPaths = [
-  "app/analytics/page.tsx",
   "app/api/analytics/visit/route.ts",
 ];
 
