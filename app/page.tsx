@@ -102,6 +102,26 @@ export default function Home() {
     return () => window.clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    if (window.location.hostname.endsWith("github.io")) return;
+
+    const sessionKey = "portfolio-location-visit-recorded";
+    if (window.sessionStorage.getItem(sessionKey)) return;
+
+    window.sessionStorage.setItem(sessionKey, "true");
+    void fetch("/api/analytics/visit", {
+      method: "POST",
+      keepalive: true,
+      credentials: "same-origin",
+    })
+      .then((response) => {
+        if (!response.ok) window.sessionStorage.removeItem(sessionKey);
+      })
+      .catch(() => {
+        window.sessionStorage.removeItem(sessionKey);
+      });
+  }, []);
+
   const showPrevious = () => setActiveSlide((current) => (current - 1 + games.length) % games.length);
   const showNext = () => setActiveSlide((current) => (current + 1) % games.length);
 
