@@ -71,6 +71,7 @@ type Prototype = {
   name: string;
   artwork: string;
   appStore: string;
+  role?: string;
 };
 
 const prototypes: Prototype[] = [
@@ -88,6 +89,8 @@ const prototypes: Prototype[] = [
   { id: "6742712617", name: "Go Go Hero!", artwork: "/prototypes/6742712617.jpg", appStore: "https://apps.apple.com/tr/app/go-go-hero/id6742712617?l=tr" },
   { id: "6741387527", name: "Super TD Bros", artwork: "/prototypes/6741387527.jpg", appStore: "https://apps.apple.com/tr/app/super-td-bros/id6741387527?l=tr" },
   { id: "6740339420", name: "Bullet Merge Master", artwork: "/prototypes/6740339420.jpg", appStore: "https://apps.apple.com/tr/app/bullet-merge-master/id6740339420?l=tr" },
+  { id: "6480042544", name: "Doodlemoji", artwork: "/prototypes/6480042544.jpg", appStore: "https://apps.apple.com/tr/app/doodlemoji/id6480042544?l=tr", role: "GAME DEVELOPER" },
+  { id: "1496924171", name: "Draw Hit", artwork: "/prototypes/1496924171.jpg", appStore: "https://apps.apple.com/tr/app/draw-hit/id1496924171?l=tr", role: "GAME DEVELOPER" },
 ];
 
 export default function Home() {
@@ -259,7 +262,7 @@ export default function Home() {
               <div className="prototype-card-copy">
                 <span>PROTOTYPE {String(index + 1).padStart(2, "0")}</span>
                 <h3>{prototype.name}</h3>
-                <small>ROLE · GAME DESIGNER</small>
+                <small className={prototype.role === "GAME DEVELOPER" ? "game-developer" : undefined}>ROLE · {prototype.role ?? "GAME DESIGNER"}</small>
               </div>
               <b aria-hidden="true">↗</b>
             </a>

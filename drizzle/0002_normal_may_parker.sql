@@ -1,0 +1,1 @@
+CREATE INDEX `idx_daily_location_visitors_location_day` ON `daily_location_visitors` (`location_key`,`day`);

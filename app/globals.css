@@ -118,6 +118,7 @@ section, footer { scroll-margin-top: 76px; }
 .prototype-card-copy > span { color: var(--lime); letter-spacing: .12em; font: 8px var(--font-geist-mono), monospace; }
 .prototype-card h3 { margin: 13px 0 18px; font-size: clamp(24px, 2.5vw, 40px); line-height: .95; letter-spacing: -.05em; }
 .prototype-card small { color: var(--lime); letter-spacing: .11em; font: 700 9px var(--font-geist-mono), monospace; text-shadow: 0 0 18px rgba(217,255,85,.28); }
+.prototype-card small.game-developer { color: #ff8a3d; text-shadow: 0 0 18px rgba(255,138,61,.34); }
 .prototype-card b { width: 46px; height: 46px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.3); border-radius: 50%; font-size: 18px; transition: .25s ease; }
 .prototype-card:hover b { color: var(--ink); border-color: var(--lime); background: var(--lime); transform: rotate(45deg); }
 
