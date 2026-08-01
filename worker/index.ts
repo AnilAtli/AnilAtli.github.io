@@ -19,6 +19,24 @@ interface ExecutionContext {
   passThroughOnException(): void;
 }
 
+type RequestLocation = {
+  country?: string;
+  region?: string;
+  city?: string;
+};
+
+function withTrustedLocationHeaders(request: Request): Request {
+  const headers = new Headers(request.headers);
+  const location = (request as Request & { cf?: RequestLocation }).cf;
+
+  // Always overwrite these internal headers so visitors cannot spoof location data.
+  headers.set("x-site-country", location?.country ?? "XX");
+  headers.set("x-site-region", location?.region ?? "Unknown");
+  headers.set("x-site-city", location?.city ?? "Unknown");
+
+  return new Request(request, { headers });
+}
+
 // Image security config. SVG sources with .svg extension auto-skip the
 // optimization endpoint on the client side (served directly, no proxy).
 // To route SVGs through the optimizer (with security headers), set
@@ -40,7 +58,7 @@ const worker = {
       }, allowedWidths);
     }
 
-    return handler.fetch(request, env, ctx);
+    return handler.fetch(withTrustedLocationHeaders(request), env, ctx);
   },
 };
 

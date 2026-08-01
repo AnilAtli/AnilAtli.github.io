@@ -1,0 +1,44 @@
+.analytics-shell { min-height: 100vh; color: #111; background: #f4f1e8; }
+.analytics-header { min-height: 68vh; padding: 44px 3.2vw 70px; display: flex; justify-content: space-between; gap: 48px; background: #d9ff55; }
+.analytics-back { display: inline-block; margin-bottom: 10vh; font-size: 13px; font-weight: 700; }
+.analytics-eyebrow { margin: 0 0 26px; letter-spacing: .13em; font: 10px var(--font-geist-mono), monospace; }
+.analytics-header h1 { margin: 0; font-size: clamp(68px, 11vw, 166px); line-height: .76; letter-spacing: -.085em; }
+.analytics-header h1 em { color: #2155ff; font-style: normal; }
+.analytics-account { align-self: flex-start; min-width: 260px; padding: 20px 0; display: grid; gap: 8px; border-top: 1px solid rgba(17,17,17,.45); border-bottom: 1px solid rgba(17,17,17,.45); }
+.analytics-account span, .analytics-account a { letter-spacing: .1em; font: 9px var(--font-geist-mono), monospace; }
+.analytics-account strong { overflow-wrap: anywhere; font-size: 13px; }
+.analytics-account a { margin-top: 10px; text-decoration: underline; }
+.analytics-summary { padding: 0 3.2vw; display: grid; grid-template-columns: repeat(3, 1fr); color: #fff; background: #111; }
+.analytics-summary article { min-height: 260px; padding: 34px 2.5vw; display: flex; flex-direction: column; border-left: 1px solid rgba(255,255,255,.18); }
+.analytics-summary article:first-child { border-left: 0; }
+.analytics-summary span { color: #d9ff55; letter-spacing: .12em; font: 9px var(--font-geist-mono), monospace; }
+.analytics-summary strong { margin: auto 0 10px; font-size: clamp(56px, 7vw, 105px); line-height: .8; letter-spacing: -.075em; }
+.analytics-summary .summary-location { font-size: clamp(35px, 4.6vw, 72px); }
+.analytics-summary small { color: rgba(255,255,255,.58); font-size: 12px; }
+.analytics-table-section { padding: 9vw 3.2vw 12vw; }
+.analytics-section-title { display: grid; grid-template-columns: 1.4fr 1fr; gap: 8vw; align-items: end; margin-bottom: 70px; }
+.analytics-section-title > div { display: grid; grid-template-columns: 44px 1fr; gap: 20px; }
+.analytics-section-title span { color: #2155ff; letter-spacing: .1em; font: 10px var(--font-geist-mono), monospace; }
+.analytics-section-title h2 { margin: 0; font-size: clamp(56px, 8vw, 118px); line-height: .78; letter-spacing: -.075em; }
+.analytics-section-title p { max-width: 550px; margin: 0; color: #676767; font-size: 16px; line-height: 1.6; }
+.analytics-table { border-top: 1px solid #111; }
+.analytics-row { min-height: 86px; display: grid; grid-template-columns: 1.5fr 1fr 1fr 100px; gap: 24px; align-items: center; border-bottom: 1px solid rgba(17,17,17,.22); }
+.analytics-row-head { min-height: 48px; color: #2155ff; letter-spacing: .11em; font: 9px var(--font-geist-mono), monospace; }
+.analytics-row strong { font-size: clamp(20px, 2.2vw, 34px); letter-spacing: -.035em; }
+.analytics-row time, .analytics-row > span { color: #676767; font-size: 13px; }
+.analytics-row b { justify-self: end; font-size: 28px; }
+.analytics-empty { min-height: 260px; padding: 50px; display: grid; place-content: center; gap: 10px; text-align: center; border: 1px solid rgba(17,17,17,.24); border-radius: 24px; }
+.analytics-empty strong { font-size: 28px; }.analytics-empty span { color: #676767; }
+
+@media (max-width: 760px) {
+  .analytics-header { min-height: 720px; padding: 28px 20px 50px; flex-direction: column-reverse; justify-content: flex-end; }
+  .analytics-back { margin: 30px 0 70px; }.analytics-account { width: 100%; }
+  .analytics-header h1 { font-size: 19vw; }
+  .analytics-summary { padding: 0 20px; grid-template-columns: 1fr; }
+  .analytics-summary article { min-height: 190px; padding: 28px 0; border-top: 1px solid rgba(255,255,255,.18); border-left: 0; }
+  .analytics-table-section { padding: 80px 20px; }.analytics-section-title { grid-template-columns: 1fr; gap: 35px; margin-bottom: 45px; }
+  .analytics-section-title > div { grid-template-columns: 30px 1fr; gap: 10px; }.analytics-section-title h2 { font-size: 17vw; }
+  .analytics-row { grid-template-columns: 1fr auto; gap: 6px 18px; padding: 18px 0; }.analytics-row-head { display: none; }
+  .analytics-row strong { grid-column: 1; }.analytics-row > span { grid-column: 1; }.analytics-row time { grid-column: 1; }
+  .analytics-row b { grid-column: 2; grid-row: 1 / 4; align-self: center; }
+}
