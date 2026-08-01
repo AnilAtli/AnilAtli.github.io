@@ -103,6 +103,8 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    if (window.location.hostname.endsWith("github.io")) return;
+
     const sessionKey = "portfolio-location-visit-recorded";
     if (window.sessionStorage.getItem(sessionKey)) return;
 

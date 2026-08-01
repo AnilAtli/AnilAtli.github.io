@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { VisitorAnalytics } from "./visitor-analytics";
 import "./globals.css";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -8,6 +9,7 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://yourname-game-design.anilanti001.chatgpt.site";
 const title = "Your Name — Game Designer & Developer";
 const description = "Game design portfolio featuring independent games, publisher work, and rapid prototypes.";
+const googleAnalyticsId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -30,7 +32,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        {children}
+        {googleAnalyticsId ? (
+          <VisitorAnalytics measurementId={googleAnalyticsId} />
+        ) : null}
+      </body>
     </html>
   );
 }
