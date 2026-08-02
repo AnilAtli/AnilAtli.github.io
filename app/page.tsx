@@ -97,6 +97,42 @@ const prototypes: Prototype[] = [
   { id: "6737980296", name: "Pipe And Pop", artwork: "/prototypes/6737980296.jpg", appStore: "https://apps.apple.com/tr/app/pipe-and-pop/id6737980296?l=tr", role: "GAME DEVELOPER" },
 ];
 
+const experience = [
+  {
+    company: "Brew Games",
+    role: "Game Designer",
+    period: "JAN 2025 PRESENT",
+    location: "ISTANBUL / TÜRKİYE",
+    summary: "Designing mobile games from early concepts through global launch, with ownership across core systems, meta progression, live data, and monetization.",
+    games: [
+      { name: "Drop Away: Color Puzzle", artwork: "/drop-away.jpg" },
+      { name: "Battle Bag: War Zone", artwork: "/battle-bag.jpg" },
+      { name: "Miner Tycoon: Big Dynamite", artwork: "/miner-tycoon.png" },
+      ...prototypes
+        .filter((prototype) => prototype.role !== "GAME DEVELOPER")
+        .map(({ name, artwork }) => ({ name, artwork })),
+    ],
+  },
+  {
+    company: "Voodoo Academy",
+    role: "Game Designer",
+    period: "JAN 2025 APR 2025",
+    location: "ISTANBUL / TÜRKİYE",
+    summary: "Built stronger product-thinking foundations through mentorship and training led by senior Product Managers and Game Designers at Voodoo.",
+    games: [],
+  },
+  {
+    company: "LootCoper Games",
+    role: "Game Developer",
+    period: "AUG 2024 NOV 2024",
+    location: "ISTANBUL / TÜRKİYE",
+    summary: "Worked close to the build, turning early gameplay ideas into focused prototypes that could be tested and improved quickly.",
+    games: prototypes
+      .filter((prototype) => prototype.role === "GAME DEVELOPER")
+      .map(({ name, artwork }) => ({ name, artwork })),
+  },
+];
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
@@ -167,6 +203,7 @@ export default function Home() {
           <a href="#games" onClick={() => setMenuOpen(false)}>Games</a>
           <a href="#prototypes" onClick={() => setMenuOpen(false)}>Prototypes</a>
           <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
+          <a href="#experience" onClick={() => setMenuOpen(false)}>Experience</a>
           <a href="#expertise" onClick={() => setMenuOpen(false)}>Expertise</a>
           <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
         </nav>
@@ -264,7 +301,10 @@ export default function Home() {
             <a className="prototype-card" href={prototype.appStore} target="_blank" rel="noreferrer" key={prototype.id} aria-label={`Open ${prototype.name} on ${prototype.linkLabel ?? "the App Store"}`}>
               <img src={prototype.artwork} alt={`${prototype.name} app icon`} />
               <div className="prototype-card-copy">
-                <span>PROTOTYPE {String(index + 1).padStart(2, "0")}</span>
+                <div className="prototype-meta">
+                  <span>PROTOTYPE {String(index + 1).padStart(2, "0")}</span>
+                  <strong>{prototype.role === "GAME DEVELOPER" ? "LOOTCOPTER GAMES" : "BREW GAMES"}</strong>
+                </div>
                 <h3>{prototype.name}</h3>
                 <small className={prototype.role === "GAME DEVELOPER" ? "game-developer" : undefined}>ROLE · {prototype.role ?? "GAME DESIGNER"}</small>
               </div>
@@ -280,13 +320,48 @@ export default function Home() {
           <h2>DESIGNER<br /><em>WHO BUILDS.</em></h2>
         </div>
         <div className="about-copy">
-          <p className="lead">I design the player experience—and get close enough to the build to prove it works.</p>
+          <p className="lead">I design the player experience and get close enough to the build to prove it works.</p>
           <p>For 2+ years, I’ve worked across systems design, rapid prototyping, level flow, balancing, and implementation. I’m most useful where a team needs clear design thinking, fast iteration, and honest collaboration.</p>
           <div className="about-stats">
             <div><strong>3</strong><span>Published titles</span></div>
             <div><strong>3M+</strong><span>Combined Google Play downloads</span></div>
             <div><strong>2+</strong><span>Years designing games</span></div>
           </div>
+        </div>
+      </section>
+
+      <section className="backstory" id="experience">
+        <div className="backstory-heading">
+          <span>MY EXPERIENCE</span>
+          <h2>MY <em>BACKSTORY.</em></h2>
+          <p>A short timeline of the teams, launches, and design problems that shaped how I build games today.</p>
+        </div>
+        <div className="experience-timeline">
+          {experience.map((item) => (
+            <article className="experience-item" key={item.company}>
+              <div className="experience-marker" aria-hidden="true" />
+              <div className="experience-content">
+                <div className="experience-meta">
+                  <div>
+                    <h3>{item.company}</h3>
+                    <strong>{item.role}</strong>
+                  </div>
+                  <div>
+                    <time>{item.period}</time>
+                    <span>{item.location}</span>
+                  </div>
+                </div>
+                <p>{item.summary}</p>
+                {item.games.length > 0 ? (
+                  <div className="experience-games" aria-label={`Games created at ${item.company}`}>
+                    {item.games.map((game) => (
+                      <img src={game.artwork} alt={`${game.name} app icon`} title={game.name} key={game.name} />
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
