@@ -1,18 +1,20 @@
-import Script from "next/script";
-
 export function VisitorAnalytics({ measurementId }: { measurementId: string }) {
   const validMeasurementId = /^G-[A-Z0-9]+$/i.test(measurementId);
   if (!validMeasurementId) return null;
 
+  const encodedMeasurementId = encodeURIComponent(measurementId);
+  const initializationScript = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','${measurementId}');`;
+
   return (
     <>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(measurementId)}`}
-        strategy="afterInteractive"
+      <script
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=${encodedMeasurementId}`}
       />
-      <Script id="portfolio-google-analytics" strategy="afterInteractive">
-        {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${measurementId}',{send_page_view:true});`}
-      </Script>
+      <script
+        id="portfolio-google-analytics"
+        dangerouslySetInnerHTML={{ __html: initializationScript }}
+      />
     </>
   );
 }
