@@ -101,22 +101,22 @@ const experience = [
   {
     company: "Brew Games",
     role: "Game Designer",
-    period: "JAN 2025 PRESENT",
+    period: "JAN 2025 - PRESENT",
     location: "ISTANBUL / TÜRKİYE",
     summary: "Designing mobile games from early concepts through global launch, with ownership across core systems, meta progression, live data, and monetization.",
     games: [
-      { name: "Drop Away: Color Puzzle", artwork: "/drop-away.jpg" },
-      { name: "Battle Bag: War Zone", artwork: "/battle-bag.jpg" },
-      { name: "Miner Tycoon: Big Dynamite", artwork: "/miner-tycoon.png" },
+      { name: "Drop Away: Color Puzzle", artwork: "/drop-away.jpg", url: games[0].appStore },
+      { name: "Battle Bag: War Zone", artwork: "/battle-bag.jpg", url: games[1].appStore },
+      { name: "Miner Tycoon: Big Dynamite", artwork: "/miner-tycoon.png", url: games[2].appStore },
       ...prototypes
         .filter((prototype) => prototype.role !== "GAME DEVELOPER")
-        .map(({ name, artwork }) => ({ name, artwork })),
+        .map(({ name, artwork, appStore }) => ({ name, artwork, url: appStore })),
     ],
   },
   {
     company: "Voodoo Academy",
     role: "Game Designer",
-    period: "JAN 2025 APR 2025",
+    period: "JAN 2025 - APR 2025",
     location: "ISTANBUL / TÜRKİYE",
     summary: "Built stronger product-thinking foundations through mentorship and training led by senior Product Managers and Game Designers at Voodoo.",
     games: [],
@@ -124,12 +124,12 @@ const experience = [
   {
     company: "LootCoper Games",
     role: "Game Developer",
-    period: "AUG 2024 NOV 2024",
+    period: "AUG 2024 - NOV 2024",
     location: "ISTANBUL / TÜRKİYE",
     summary: "Worked close to the build, turning early gameplay ideas into focused prototypes that could be tested and improved quickly.",
     games: prototypes
       .filter((prototype) => prototype.role === "GAME DEVELOPER")
-      .map(({ name, artwork }) => ({ name, artwork })),
+      .map(({ name, artwork, appStore }) => ({ name, artwork, url: appStore })),
   },
 ];
 
@@ -355,7 +355,9 @@ export default function Home() {
                 {item.games.length > 0 ? (
                   <div className="experience-games" aria-label={`Games created at ${item.company}`}>
                     {item.games.map((game) => (
-                      <img src={game.artwork} alt={`${game.name} app icon`} title={game.name} key={game.name} />
+                      <a href={game.url} target="_blank" rel="noreferrer" aria-label={`Open ${game.name}`} title={game.name} key={game.name}>
+                        <img src={game.artwork} alt={`${game.name} app icon`} />
+                      </a>
                     ))}
                   </div>
                 ) : null}

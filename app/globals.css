@@ -157,8 +157,10 @@ section, footer { scroll-margin-top: 76px; }
 .experience-meta time, .experience-meta span { color: rgba(255,255,255,.56); letter-spacing: .09em; font: 9px/1.4 var(--font-geist-mono), monospace; }
 .experience-content > p { max-width: 760px; margin: 28px 0 0; color: rgba(255,255,255,.8); font-size: clamp(18px, 1.6vw, 24px); line-height: 1.45; letter-spacing: -.018em; }
 .experience-games { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 10px; }
+.experience-games a { display: block; border-radius: 22%; }
 .experience-games img { width: clamp(54px, 4.6vw, 70px); aspect-ratio: 1; object-fit: cover; border: 2px solid rgba(255,255,255,.18); border-radius: 22%; box-shadow: 0 12px 28px rgba(0,0,0,.28); transition: transform .2s ease, border-color .2s ease; }
-.experience-games img:hover { border-color: var(--lime); transform: translateY(-4px); }
+.experience-games a:hover img, .experience-games a:focus-visible img { border-color: var(--lime); transform: translateY(-4px); }
+.experience-games a:focus-visible { outline: 2px solid var(--lime); outline-offset: 4px; }
 
 .expertise { padding: 10vw 3.2vw; background: var(--paper); }
 .expertise-head { display: grid; grid-template-columns: .6fr 1.4fr; gap: 5vw; padding-bottom: 6vw; }
