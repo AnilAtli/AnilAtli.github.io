@@ -184,7 +184,7 @@ export default function Home() {
             <div className="hero-meta">
               <span>0{activeSlide + 1} / 03</span>
               <span>{activeGame.genre}</span>
-              <span>{activeGame.publisher}</span>
+              <span className="publisher-name">{activeGame.publisher}</span>
             </div>
             <p className="hero-role">GAME DESIGNER · PUBLISHED TITLE</p>
             <div className="hero-name-row">
@@ -228,7 +228,7 @@ export default function Home() {
           {games.map((game) => (
             <article className={`game-panel ${game.slug}`} key={game.slug} id={game.slug}>
               <div className="game-info">
-                <div className="game-kicker"><span>{game.number}</span><span>{game.genre}</span><span>{game.publisher}</span></div>
+                <div className="game-kicker"><span>{game.number}</span><span>{game.genre}</span><span className="publisher-name">{game.publisher}</span></div>
                 <div className="game-name-row"><img src={game.artwork} alt="" aria-hidden="true" /><h3>{game.name}</h3></div>
                 <h4>{game.subtitle}</h4>
                 <p>{game.description}</p>
