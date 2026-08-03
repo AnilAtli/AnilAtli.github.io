@@ -200,7 +200,6 @@ export default function Home() {
           <a href="#prototypes" onClick={() => setMenuOpen(false)}>Prototypes</a>
           <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
           <a href="#experience" onClick={() => setMenuOpen(false)}>Experience</a>
-          <a href="#expertise" onClick={() => setMenuOpen(false)}>Expertise</a>
           <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
         </nav>
         <button className="menu" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? "Close menu" : "Open menu"} aria-controls="primary-navigation" aria-expanded={menuOpen}>
@@ -599,19 +598,6 @@ export default function Home() {
               </div>
             </article>
           ))}
-        </div>
-      </section>
-
-      <section className="expertise" id="expertise">
-        <div className="expertise-head">
-          <span>WHAT I BRING</span>
-          <h2>FROM QUESTION<br />TO PLAYABLE.</h2>
-        </div>
-        <div className="discipline-list">
-          <article><span>01</span><h3>Systems Design</h3><p>Core loops, economies, progression, rules, and the decisions that keep players engaged.</p></article>
-          <article><span>02</span><h3>Rapid Prototyping</h3><p>Small, focused builds that answer the riskiest design question before production gets expensive.</p></article>
-          <article><span>03</span><h3>Level & Content Design</h3><p>Pacing, difficulty, onboarding, and reusable structures that make systems readable in play.</p></article>
-          <article><span>04</span><h3>Production Design</h3><p>Clear documentation, cross-team communication, implementation support, and practical iteration.</p></article>
         </div>
       </section>
 
