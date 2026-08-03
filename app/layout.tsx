@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title,
     description,
     type: "website",
-    images: [{ url: "/og.png", width: 1743, height: 909, alt: "Game Designer & Developer portfolio" }],
+    images: [{ url: "/og.png", width: 1731, height: 909, alt: "Anıl Atlı — Game Designer portfolio" }],
   },
   twitter: {
     card: "summary_large_image",
