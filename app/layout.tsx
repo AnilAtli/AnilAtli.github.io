@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     title,
     description,
     type: "website",
-    images: [{ url: "/og.png", width: 1731, height: 909, alt: "Anıl Atlı — Game Designer portfolio" }],
+    images: [{ url: "/og-social-20260803.png", width: 1731, height: 909, alt: "Anıl Atlı — Game Designer portfolio" }],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: ["/og.png"],
+    images: ["/og-social-20260803.png"],
   },
 };
 
