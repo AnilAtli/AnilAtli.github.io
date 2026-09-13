@@ -139,15 +139,6 @@ const experience = [
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSlide, setActiveSlide] = useState(0);
-  const activeGame = games[activeSlide];
-
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setActiveSlide((current) => (current + 1) % games.length);
-    }, 5500);
-    return () => window.clearInterval(timer);
-  }, []);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -186,23 +177,13 @@ export default function Home() {
       });
   }, []);
 
-  const showPrevious = () => setActiveSlide((current) => (current - 1 + games.length) % games.length);
-  const showNext = () => setActiveSlide((current) => (current + 1) % games.length);
-
   return (
     <main>
-      <aside className="profile-strip" aria-label="Profile and contact information">
-        <a className="profile-strip-person" href="https://www.linkedin.com/in/anilatli/" target="_blank" rel="noreferrer">
-          <img src="/anil-atli-profile.jpg" alt="Anıl Atlı" />
-          <span><strong>ANIL ATLI</strong><small>GAME DESIGNER</small></span>
-        </a>
-        <div className="profile-strip-contact">
-          <a href="mailto:mr.atli.anil@gmail.com"><small>EMAIL</small><strong>mr.atli.anil@gmail.com</strong></a>
-          <a href="tel:+905319578411"><small>PHONE</small><strong>0531 957 84 11</strong></a>
-          <span className="profile-location"><small>LOCATION</small><strong>ISTANBUL</strong></span>
-        </div>
-      </aside>
       <header className="topbar">
+        <a className="wordmark" href="#top" aria-label="Anıl Atlı — back to top">
+          <span>AA</span>
+          <strong>ANIL ATLI<small>GAME DESIGNER</small></strong>
+        </a>
         <nav id="primary-navigation" className={menuOpen ? "open" : ""} aria-label="Primary navigation">
           <a href="#games" onClick={() => setMenuOpen(false)}>Games</a>
           <a href="#prototypes" onClick={() => setMenuOpen(false)}>Prototypes</a>
@@ -215,44 +196,27 @@ export default function Home() {
         </button>
       </header>
 
-      <section className={`hero hero-${activeGame.slug}`} id="top" aria-roledescription="carousel" aria-label="Featured games">
-        <div className="hero-backdrop" aria-hidden="true">
-          <img key={`backdrop-${activeGame.slug}`} src={activeGame.screenshot} alt="" />
-        </div>
-        <div className="hero-slide" key={activeGame.slug}>
-          <div className="hero-slide-copy">
-            <div className="hero-meta">
-              <span>0{activeSlide + 1} / 03</span>
-              <span>{activeGame.genre}</span>
-              <span className="publisher-name">{activeGame.publisher}</span>
-            </div>
-            <p className="hero-role">GAME DESIGNER · PUBLISHED TITLE</p>
-            <div className="hero-name-row">
-              <img src={activeGame.artwork} alt="" aria-hidden="true" />
-              <div><h1>{activeGame.name}</h1><h2>{activeGame.subtitle}</h2></div>
-            </div>
-            <p className="hero-description">{activeGame.description}</p>
-            <div className="hero-actions">
-              <a href={`#${activeGame.slug}`}>View project <b>↓</b></a>
-              <a href={activeGame.googlePlay} target="_blank" rel="noreferrer">Play Store <b>↗</b></a>
-            </div>
-          </div>
-          <div className="hero-visual">
-            <div className={`phone-shot phone-shot-${activeGame.slug}`}>
-              <img src={activeGame.screenshot} alt={`${activeGame.name} gameplay screenshot`} />
-            </div>
+      <section className="profile-strip" id="top" aria-labelledby="intro-title">
+        <div className="profile-strip-copy">
+          <span className="profile-availability"><i />AVAILABLE FOR SELECT OPPORTUNITIES</span>
+          <h1 id="intro-title">ANIL<br /><em>ATLI.</em></h1>
+          <p>Game designer with 2+ years of experience, turning simple interactions into readable systems, satisfying decisions, and games built to scale.</p>
+          <div className="profile-actions">
+            <a href="#games">View selected work <b>↓</b></a>
+            <a href="https://www.linkedin.com/in/anilatli/" target="_blank" rel="noreferrer">LinkedIn <b>↗</b></a>
           </div>
         </div>
-        <div className="slider-controls">
-          <div className="slider-dots" role="tablist" aria-label="Choose featured game">
-            {games.map((game, index) => (
-              <button key={game.slug} className={index === activeSlide ? "active" : ""} onClick={() => setActiveSlide(index)} aria-label={`Show ${game.name}`} aria-selected={index === activeSlide}><span /></button>
-            ))}
+        <div className="profile-strip-person">
+          <div className="profile-portrait"><img src="/anil-atli-profile.jpg" alt="Anıl Atlı" /></div>
+          <div className="profile-strip-contact" aria-label="Contact information">
+            <a href="mailto:mr.atli.anil@gmail.com"><small>EMAIL</small><strong>mr.atli.anil@gmail.com</strong></a>
+            <a href="tel:+905319578411"><small>PHONE</small><strong>0531 957 84 11</strong></a>
+            <span className="profile-location"><small>BASED IN</small><strong>ISTANBUL, TÜRKİYE</strong></span>
           </div>
-          <div className="slider-arrows">
-            <button onClick={showPrevious} aria-label="Previous game">←</button>
-            <button onClick={showNext} aria-label="Next game">→</button>
-          </div>
+        </div>
+        <div className="profile-strip-foot">
+          <span>GAME DESIGN · SYSTEMS · PROTOTYPING</span>
+          <span>SCROLL TO EXPLORE ↓</span>
         </div>
       </section>
 
@@ -283,10 +247,10 @@ export default function Home() {
                   {game.slug === "battle-bag" && <a href="#battle-bag-gdd">View GDD <b>↓</b></a>}
                 </div>
               </div>
-              <div className="game-stage">
-                <img src={game.artwork} alt={`${game.name}: ${game.subtitle} app icon`} />
-                <span className="stage-ring ring-one" />
-                <span className="stage-ring ring-two" />
+              <div className={`game-stage game-stage-${game.slug}`}>
+                <div className="game-screenshot">
+                  <img src={game.screenshot} alt={`${game.name} gameplay screenshot`} />
+                </div>
               </div>
             </article>
           ))}
@@ -566,7 +530,7 @@ export default function Home() {
           <p>For 2+ years, I’ve worked across systems design, rapid prototyping, level flow, balancing, and implementation. I’m most useful where a team needs clear design thinking, fast iteration, and honest collaboration.</p>
           <div className="about-stats">
             <div><strong>3</strong><span>Published titles</span></div>
-            <div><strong>3M+</strong><span>Combined Google Play downloads</span></div>
+            <div><strong>10M+</strong><span>Downloads</span></div>
             <div><strong>2+</strong><span>Years designing games</span></div>
           </div>
         </div>

@@ -6,7 +6,7 @@ import "./globals.css";
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://yourname-game-design.anilanti001.chatgpt.site";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://anilatli.github.io";
 const title = "Anıl Atlı Portfolio";
 const description = "Game design portfolio featuring independent games, publisher work, and rapid prototypes.";
 const googleAnalyticsId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     title,
     description,
     type: "website",
-    images: [{ url: "/og-social-20260803.png", width: 1731, height: 909, alt: "Anıl Atlı — Game Designer portfolio" }],
+    images: [{ url: "/og-social-design-20260913.png", width: 1672, height: 941, alt: "Anıl Atlı — Game Designer portfolio" }],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: ["/og-social-20260803.png"],
+    images: ["/og-social-design-20260913.png"],
   },
 };
 
