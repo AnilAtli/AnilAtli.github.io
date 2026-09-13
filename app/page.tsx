@@ -72,6 +72,9 @@ type Prototype = {
 };
 
 const prototypes: Prototype[] = [
+  { id: "6793429836", name: "Boulderoll: Cog Battle", artwork: "/prototypes/6793429836.jpg", appStore: "https://apps.apple.com/us/app/boulderoll-cog-battle/id6793429836", role: "GAME DESIGNER" },
+  { id: "6801574921", name: "Warstack: Merge Squad", artwork: "/prototypes/6801574921.jpg", appStore: "https://apps.apple.com/us/app/warstack-merge-squad/id6801574921", role: "GAME DESIGNER" },
+  { id: "6802639490", name: "Hexarena: Merge Defense", artwork: "/prototypes/6802639490.jpg", appStore: "https://apps.apple.com/us/app/hexarena-merge-defense/id6802639490", role: "GAME DESIGNER" },
   { id: "6759793094", name: "Warship Master Arena!", artwork: "/prototypes/6759793094.jpg", appStore: "https://apps.apple.com/tr/app/warship-master-arena/id6759793094?l=tr" },
   { id: "6756562405", name: "Fall of the Ages", artwork: "/prototypes/6756562405.jpg", appStore: "https://apps.apple.com/tr/app/fall-of-the-ages/id6756562405?l=tr" },
   { id: "6756109998", name: "Space: Hole Squad", artwork: "/prototypes/6756109998.jpg", appStore: "https://apps.apple.com/tr/app/space-hole-squad/id6756109998?l=tr" },
@@ -93,6 +96,8 @@ const prototypes: Prototype[] = [
   { id: "6737980296", name: "Pipe And Pop", artwork: "/prototypes/6737980296.jpg", appStore: "https://apps.apple.com/tr/app/pipe-and-pop/id6737980296?l=tr", role: "GAME DEVELOPER" },
 ];
 
+const newestPrototypeIds = new Set(["6793429836", "6801574921", "6802639490"]);
+
 const experience = [
   {
     company: "Brew Games",
@@ -105,7 +110,10 @@ const experience = [
       { name: "Battle Bag: War Zone", artwork: "/battle-bag.jpg", url: games[1].appStore },
       { name: "Miner Tycoon: Big Dynamite", artwork: "/miner-tycoon.png", url: games[2].appStore },
       ...prototypes
-        .filter((prototype) => prototype.role !== "GAME DEVELOPER")
+        .filter((prototype) => prototype.role !== "GAME DEVELOPER" && !newestPrototypeIds.has(prototype.id))
+        .map(({ name, artwork, appStore }) => ({ name, artwork, url: appStore })),
+      ...prototypes
+        .filter((prototype) => newestPrototypeIds.has(prototype.id))
         .map(({ name, artwork, appStore }) => ({ name, artwork, url: appStore })),
     ],
   },
