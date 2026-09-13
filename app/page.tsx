@@ -137,7 +137,7 @@ const experience = [
   },
 ];
 
-export default function Home() {
+export function Portfolio({ gddOnly = false }: { gddOnly?: boolean }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -180,22 +180,27 @@ export default function Home() {
   return (
     <main>
       <header className="topbar">
-        <a className="wordmark" href="#top" aria-label="Anıl Atlı — back to top">
+        <a className="wordmark" href={gddOnly ? "/#top" : "#top"} aria-label="Anıl Atlı — back to top">
           <span>AA</span>
           <strong>ANIL ATLI<small>GAME DESIGNER</small></strong>
         </a>
         <nav id="primary-navigation" className={menuOpen ? "open" : ""} aria-label="Primary navigation">
-          <a href="#games" onClick={() => setMenuOpen(false)}>Games</a>
-          <a href="#prototypes" onClick={() => setMenuOpen(false)}>Prototypes</a>
-          <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
-          <a href="#experience" onClick={() => setMenuOpen(false)}>Experience</a>
-          <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+          <a className="gdd-nav-link" href="/gdd" onClick={() => setMenuOpen(false)}>
+            <img src="/gdd-soldier-transparent.png" alt="" aria-hidden="true" />
+            <span>GDD</span>
+          </a>
+          <a href={gddOnly ? "/#games" : "#games"} onClick={() => setMenuOpen(false)}>Games</a>
+          <a href={gddOnly ? "/#prototypes" : "#prototypes"} onClick={() => setMenuOpen(false)}>Prototypes</a>
+          <a href={gddOnly ? "/#about" : "#about"} onClick={() => setMenuOpen(false)}>About</a>
+          <a href={gddOnly ? "/#experience" : "#experience"} onClick={() => setMenuOpen(false)}>Experience</a>
+          <a href={gddOnly ? "/#contact" : "#contact"} onClick={() => setMenuOpen(false)}>Contact</a>
         </nav>
         <button className="menu" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? "Close menu" : "Open menu"} aria-controls="primary-navigation" aria-expanded={menuOpen}>
           <span /><span />
         </button>
       </header>
 
+      {!gddOnly && <>
       <section className="profile-strip" id="top" aria-labelledby="intro-title">
         <div className="profile-strip-copy">
           <span className="profile-availability"><i />AVAILABLE FOR SELECT OPPORTUNITIES</span>
@@ -244,7 +249,7 @@ export default function Home() {
                 <div className="store-links">
                   <a href={game.appStore} target="_blank" rel="noreferrer">App Store <b>↗</b></a>
                   <a href={game.googlePlay} target="_blank" rel="noreferrer">Google Play <b>↗</b></a>
-                  {game.slug === "battle-bag" && <a href="#battle-bag-gdd">View GDD <b>↓</b></a>}
+                  {game.slug === "battle-bag" && <a href="/gdd">View GDD <b>↗</b></a>}
                 </div>
               </div>
               <div className={`game-stage game-stage-${game.slug}`}>
@@ -279,8 +284,9 @@ export default function Home() {
           ))}
         </div>
       </section>
+      </>}
 
-      <section className="battle-gdd" id="battle-bag-gdd">
+      {gddOnly && <section className="battle-gdd" id="battle-bag-gdd">
         <header className="gdd-cover">
           <div className="gdd-cover-backdrop" aria-hidden="true"><img src="/battle-bag-gdd/appstore-defeat.webp" alt="" /></div>
           <div className="gdd-cover-copy">
@@ -518,8 +524,9 @@ export default function Home() {
           </article>
 
         </div>
-      </section>
+      </section>}
 
+      {!gddOnly && <>
       <section className="about" id="about">
         <div className="about-title">
           <span>ABOUT ME</span>
@@ -583,6 +590,11 @@ export default function Home() {
           <a href="#top">BACK TO TOP ↑</a>
         </div>
       </footer>
+      </>}
     </main>
   );
+}
+
+export default function Home() {
+  return <Portfolio />;
 }

@@ -557,6 +557,16 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--lime); outline-
 }
 .topbar nav a:hover { color: var(--white); background: rgba(255, 255, 255, .08); }
 .topbar nav a:active { transform: scale(.97); }
+.topbar nav .gdd-nav-link {
+  padding: 4px 13px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  color: var(--white);
+}
+.gdd-nav-link img { width: 30px; height: 30px; display: block; object-fit: contain; }
+.gdd-nav-link span { font: 700 9px var(--font-geist-mono), monospace; letter-spacing: .08em; }
 
 .profile-strip {
   position: relative;
@@ -931,6 +941,9 @@ footer h2 { font-weight: 680; }
   }
   .topbar nav.open { transition-delay: 0s; }
   .topbar nav a { padding: 8px 0; border-radius: 0; color: var(--ink); font-size: clamp(38px, 11vw, 70px); font-weight: 640; }
+  .topbar nav .gdd-nav-link { align-items: flex-start; gap: 2px; color: var(--ink); }
+  .gdd-nav-link img { width: 52px; height: 52px; }
+  .gdd-nav-link span { font-size: clamp(38px, 11vw, 70px); letter-spacing: -.055em; }
   .profile-strip {
     min-height: 0;
     padding-top: 118px;
