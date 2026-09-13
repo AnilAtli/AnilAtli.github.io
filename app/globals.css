@@ -769,7 +769,13 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--lime); outline-
 }
 .slider-arrows button:active { transform: scale(.94); }
 
-.games { padding: clamp(96px, 11vw, 180px) clamp(20px, 4vw, 64px); background: var(--paper); }
+.games {
+  padding: clamp(96px, 11vw, 180px) clamp(20px, 4vw, 64px);
+  background:
+    radial-gradient(circle at 10% 8%, rgba(201, 255, 92, .34), transparent 34%),
+    radial-gradient(circle at 88% 32%, rgba(101, 116, 255, .24), transparent 40%),
+    linear-gradient(145deg, #f7f6f1 0%, #edf0ff 52%, #f2eafd 100%);
+}
 .section-intro { align-items: start; }
 .section-intro > span { color: var(--blue); }
 .global-launch-intro h2 {
@@ -924,7 +930,14 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--lime); outline-
 }
 .about-stats strong { font-weight: 620; }
 
-.backstory { padding: clamp(100px, 12vw, 190px) clamp(20px, 4vw, 64px); color: var(--ink); background: var(--paper); }
+.backstory {
+  padding: clamp(100px, 12vw, 190px) clamp(20px, 4vw, 64px);
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 8%, rgba(201, 255, 92, .34), transparent 34%),
+    radial-gradient(circle at 88% 32%, rgba(101, 116, 255, .24), transparent 40%),
+    linear-gradient(145deg, #f7f6f1 0%, #edf0ff 52%, #f2eafd 100%);
+}
 .backstory-heading { margin-bottom: clamp(72px, 9vw, 130px); text-align: left; }
 .backstory-heading > span { color: var(--blue); }
 .backstory-heading h2 { font-weight: 680; }
