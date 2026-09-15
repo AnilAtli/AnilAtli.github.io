@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { SkillsTools } from "./skills-tools";
 
 type Game = {
   number: string;
@@ -542,6 +543,8 @@ export function Portfolio({ gddOnly = false }: { gddOnly?: boolean }) {
           </div>
         </div>
       </section>
+
+      <SkillsTools />
 
       <section className="backstory" id="experience">
         <div className="backstory-heading">
