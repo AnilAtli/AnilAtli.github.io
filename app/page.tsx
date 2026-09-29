@@ -281,6 +281,18 @@ export function Portfolio({ gddOnly = false }: { gddOnly?: boolean }) {
                 <small className={prototype.role === "GAME DEVELOPER" ? "game-developer" : undefined}>ROLE · {prototype.role ?? "GAME DESIGNER"}</small>
               </div>
               <b aria-hidden="true">↗</b>
+              <div className="prototype-shots" aria-label={`${prototype.name} store screenshots`}>
+                {[1, 2, 3].map((shotNumber) => (
+                  <img
+                    className="prototype-shot"
+                    src={`/prototypes/screenshots/${prototype.id}-${String(shotNumber).padStart(2, "0")}.jpg`}
+                    alt={`${prototype.name} store screenshot ${shotNumber}`}
+                    loading="lazy"
+                    decoding="async"
+                    key={shotNumber}
+                  />
+                ))}
+              </div>
             </a>
           ))}
         </div>
