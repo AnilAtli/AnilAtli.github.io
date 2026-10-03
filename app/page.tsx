@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { SkillsTools } from "./skills-tools";
+import { SelfDevelopment } from "./self-development";
 
 type Game = {
   number: string;
@@ -192,6 +193,7 @@ export function Portfolio({ gddOnly = false }: { gddOnly?: boolean }) {
           </a>
           <a href={gddOnly ? "/#games" : "#games"} onClick={() => setMenuOpen(false)}>Games</a>
           <a href={gddOnly ? "/#prototypes" : "#prototypes"} onClick={() => setMenuOpen(false)}>Prototypes</a>
+          <a href={gddOnly ? "/#self-development" : "#self-development"} onClick={() => setMenuOpen(false)}>Self Development</a>
           <a href={gddOnly ? "/#about" : "#about"} onClick={() => setMenuOpen(false)}>About</a>
           <a href={gddOnly ? "/#experience" : "#experience"} onClick={() => setMenuOpen(false)}>Experience</a>
           <a href={gddOnly ? "/#contact" : "#contact"} onClick={() => setMenuOpen(false)}>Contact</a>
@@ -297,6 +299,7 @@ export function Portfolio({ gddOnly = false }: { gddOnly?: boolean }) {
           ))}
         </div>
       </section>
+      <SelfDevelopment />
       </>}
 
       {gddOnly && <section className="battle-gdd" id="battle-bag-gdd">
