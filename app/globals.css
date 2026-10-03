@@ -888,13 +888,13 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--lime); outline-
   color: #152b50;
   background: #faf7ef;
 }
-.self-development-heading { max-width: 1120px; margin: 0 auto clamp(24px, 3vw, 44px); }
+.self-development-heading { max-width: 1280px; margin: 0 auto clamp(24px, 3vw, 44px); }
 .self-development-eyebrow { color: #486082; font: 10px/1.5 var(--font-geist-mono), monospace; letter-spacing: .12em; }
 .self-development-heading h2 { margin: 14px 0 15px; color: #224caf; font-weight: 680; line-height: .78; letter-spacing: -.085em; }
 .self-development-heading h2 span { color: #d9a600; }
 .self-development-credit { display: inline-block; margin: 0; padding: 7px 12px; border-radius: 6px; color: #152b50; background: #ffe58b; font-size: 13px; font-weight: 650; line-height: 1.4; }
-.self-development-projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; max-width: 1120px; margin: 0 auto; }
-.personal-project { min-width: 0; padding: clamp(14px, 1.7vw, 24px); border: 1px solid #d9e1eb; border-radius: 18px; background: #fff; }
+.self-development-projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; max-width: 1280px; margin: 0 auto; }
+.personal-project { min-width: 0; padding: clamp(18px, 2vw, 28px); border: 1px solid #d9e1eb; border-radius: 18px; background: #fff; }
 .personal-project-heading { display: flex; align-items: center; gap: clamp(12px, 1.5vw, 18px); }
 .personal-project-copy { min-width: 0; }
 .personal-project-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
@@ -902,7 +902,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--lime); outline-
 .personal-project-debut::before { content: ""; width: 4px; height: 4px; flex: 0 0 auto; border-radius: 50%; background: currentColor; }
 .personal-project-academy { display: inline-flex; align-items: center; padding: 6px 10px; border: 1px solid #84ce68; border-radius: 999px; color: #19452a; background: #b4ee8c; font: 600 9px/1.4 var(--font-geist-mono), monospace; letter-spacing: .06em; }
 .personal-project-academy-note { margin: 8px 0 0; color: #486082; font-size: 11px; line-height: 1.5; }
-.personal-project-icon { flex: 0 0 auto; display: block; width: clamp(48px, 5vw, 66px); height: auto; border-radius: 24%; box-shadow: 0 6px 14px rgba(21,43,80,.15); }
+.personal-project-icon { flex: 0 0 auto; display: block; width: clamp(56px, 5.5vw, 76px); height: auto; border-radius: 24%; box-shadow: 0 6px 14px rgba(21,43,80,.15); }
 .personal-project-heading h3 { margin: 6px 0 0; font-size: clamp(24px, 2.5vw, 32px); font-weight: 630; letter-spacing: -.055em; line-height: 1.05; }
 .personal-project-gallery-heading { margin: clamp(17px, 2vw, 28px) 0 9px; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #486082; font: 9px/1.5 var(--font-geist-mono), monospace; letter-spacing: .1em; }
 .personal-project-swipe-hint { display: none; }
@@ -916,14 +916,14 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--lime); outline-
   .self-development { padding: 40px max(16px, env(safe-area-inset-right)) 40px max(16px, env(safe-area-inset-left)); }
   .self-development-heading h2 { margin-top: 12px; }
   .self-development-projects { grid-template-columns: minmax(0, 1fr); }
-  .personal-project { padding: 14px 12px; border-radius: 16px; }
+  .personal-project { padding: 18px 14px; border-radius: 16px; }
   .personal-project-heading { gap: 12px; }
-  .personal-project-icon { width: 48px; }
+  .personal-project-icon { width: 56px; }
   .personal-project-heading .self-development-eyebrow { font-size: 8px; }
   .personal-project-heading h3 { margin-top: 4px; font-size: clamp(22px, 6vw, 28px); }
   .personal-project-gallery-heading { flex-wrap: wrap; gap: 8px; font-size: 8px; letter-spacing: .06em; }
   .personal-project-swipe-hint { display: inline; }
-  .personal-project-gallery { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: min(48%, 140px); gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 8px; overscroll-behavior-x: contain; padding: 8px; border-radius: 10px; }
+  .personal-project-gallery { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: min(56%, 160px); gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 8px; overscroll-behavior-x: contain; padding: 8px; border-radius: 10px; }
   .personal-project-gallery figure { scroll-snap-align: start; }
 }
 
