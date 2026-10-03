@@ -603,7 +603,7 @@ export function Portfolio({ gddOnly = false }: { gddOnly?: boolean }) {
         <a className="email" href="mailto:mr.atli.anil@gmail.com"><span>mr.atli.anil@gmail.com</span><b>↗</b></a>
         <div className="footer-row">
           <span>© 2026 ANIL ATLI</span>
-          <div><a href="https://www.linkedin.com/in/anilatli/" target="_blank" rel="noreferrer">LINKEDIN</a><a href="#">ITCH.IO</a><a href="#">STEAM</a></div>
+          <div><a href="https://www.linkedin.com/in/anilatli/" target="_blank" rel="noreferrer">LINKEDIN</a></div>
           <a href="#top">BACK TO TOP ↑</a>
         </div>
       </footer>
