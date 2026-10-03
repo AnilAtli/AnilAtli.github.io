@@ -912,10 +912,35 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--lime); outline-
 .personal-project-gallery img { display: block; width: 100%; height: auto; border: 1px solid rgba(21,43,80,.1); border-radius: 8px; }
 .personal-project-gallery figcaption { margin-top: 7px; color: #486082; text-align: center; font: 10px/1.5 var(--font-geist-mono), monospace; }
 
+.ai-projects { padding: clamp(46px, 5vw, 80px) clamp(20px, 4vw, 64px); background: #eee9f8; }
+.ai-projects-inner { max-width: 1280px; margin: 0 auto; }
+.ai-projects-heading { margin-bottom: clamp(24px, 3vw, 36px); }
+.ai-projects-heading h2 { margin: 0; color: #224caf; font-size: clamp(40px, 5vw, 64px); font-weight: 650; line-height: 1.05; letter-spacing: -.06em; }
+.ai-projects-heading h2 span { color: #d9a600; }
+.ai-projects-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.ai-project-card { display: block; min-width: 0; overflow: hidden; border: 1px solid #dedbea; border-radius: 18px; color: #152b50; background: #fff; text-decoration: none; }
+.ai-project-card:active { transform: scale(.985); }
+@media (hover: hover) and (pointer: fine) {
+  .ai-project-card:hover { border-color: #9686b7; }
+}
+.ai-project-card:focus-visible { outline: 2px solid #224caf; outline-offset: 5px; }
+.ai-project-image { aspect-ratio: 1.92; overflow: hidden; background: #f5f2fa; }
+.ai-project-image img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.ai-project-caption { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px; }
+.ai-project-caption h3 { margin: 0; font-size: clamp(18px, 1.8vw, 24px); font-weight: 630; letter-spacing: -.045em; line-height: 1.2; }
+.ai-project-visit { flex: 0 0 auto; color: #486082; font-size: 22px; }
+
+@media (max-width: 900px) {
+  .ai-projects-grid { gap: 12px; }
+  .ai-project-caption { padding: 16px 12px; }
+}
+
 @media (max-width: 620px) {
+  .ai-projects { padding: 40px max(16px, env(safe-area-inset-right)) 40px max(16px, env(safe-area-inset-left)); }
   .self-development { padding: 40px max(16px, env(safe-area-inset-right)) 40px max(16px, env(safe-area-inset-left)); }
   .self-development-heading h2 { margin-top: 12px; }
   .self-development-projects { grid-template-columns: minmax(0, 1fr); }
+  .ai-projects-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .personal-project { padding: 18px 14px; border-radius: 16px; }
   .personal-project-heading { gap: 12px; }
   .personal-project-icon { width: 56px; }

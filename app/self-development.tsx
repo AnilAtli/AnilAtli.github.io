@@ -102,6 +102,12 @@ const personalProjects: PersonalProject[] = [
   },
 ];
 
+const aiProjects = [
+  { name: "Voice Cloner", url: "https://hoppalavoiceclone.github.io/", image: "/ai-projects/hoppala-voice.png", width: 1904, height: 996 },
+  { name: "AI VIDEO CREATION", url: "https://cuppalavid.github.io/", image: "/ai-projects/cuppalavid.png", width: 1917, height: 998 },
+  { name: "Satellite View", url: "https://anilseye.github.io/", image: "/ai-projects/anils-eye.png", width: 1919, height: 996 },
+];
+
 export function SelfDevelopment() {
   return (
     <section className="self-development" id="self-development" aria-labelledby="self-development-title">
@@ -144,5 +150,30 @@ export function SelfDevelopment() {
         ))}
       </div>
     </section>
+  );
+}
+
+export function AIProjects() {
+  return (
+      <section className="ai-projects" id="ai-projects" aria-labelledby="ai-projects-title">
+        <div className="ai-projects-inner">
+        <div className="ai-projects-heading">
+          <h2 id="ai-projects-title">AI Projects<span>.</span></h2>
+        </div>
+        <div className="ai-projects-grid">
+          {aiProjects.map((project) => (
+            <a className="ai-project-card" key={project.url} href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`${project.name} — open website in a new tab`}>
+              <div className="ai-project-image">
+                <img src={project.image} alt={`${project.name} screenshot`} width={project.width} height={project.height} loading="lazy" decoding="async" />
+              </div>
+              <div className="ai-project-caption">
+                <h3>{project.name}</h3>
+                <span className="ai-project-visit" aria-hidden="true">↗</span>
+              </div>
+            </a>
+          ))}
+        </div>
+        </div>
+      </section>
   );
 }
