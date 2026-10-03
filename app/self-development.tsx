@@ -2,6 +2,8 @@ type PersonalProject = {
   slug: string;
   name: string;
   icon: string;
+  debutWork?: boolean;
+  academySelection?: boolean;
   screenshotWidth: number;
   screenshotHeight: number;
   screenshots: { src: string; caption: string; width?: number; height?: number }[];
@@ -35,6 +37,8 @@ const personalProjects: PersonalProject[] = [
   {
     slug: "zombie-run",
     name: "Zombie Run",
+    debutWork: true,
+    academySelection: true,
     icon: "/self-development/zombie-run/icon.webp",
     screenshotWidth: 466,
     screenshotHeight: 1037,
@@ -47,6 +51,7 @@ const personalProjects: PersonalProject[] = [
   {
     slug: "car-chaos",
     name: "Car Chaos",
+    debutWork: true,
     icon: "/self-development/car-chaos/icon.webp",
     screenshotWidth: 347,
     screenshotHeight: 755,
@@ -59,6 +64,7 @@ const personalProjects: PersonalProject[] = [
   {
     slug: "cross-walk",
     name: "Cross Walk",
+    debutWork: true,
     icon: "/self-development/cross-walk/icon.webp",
     screenshotWidth: 481,
     screenshotHeight: 1037,
@@ -71,6 +77,7 @@ const personalProjects: PersonalProject[] = [
   {
     slug: "frush",
     name: "Frush: Runner Game",
+    debutWork: true,
     icon: "/self-development/frush/icon.webp",
     screenshotWidth: 584,
     screenshotHeight: 1038,
@@ -83,6 +90,7 @@ const personalProjects: PersonalProject[] = [
   {
     slug: "hold-tline",
     name: "Hold TLine",
+    debutWork: true,
     icon: "/self-development/hold-tline/icon.webp",
     screenshotWidth: 482,
     screenshotHeight: 1038,
@@ -108,9 +116,16 @@ export function SelfDevelopment() {
           <article className="personal-project" key={project.slug} aria-labelledby={`${project.slug}-title`}>
             <header className="personal-project-heading">
               <img className="personal-project-icon" src={project.icon} alt={`${project.name} app icon`} width={512} height={512} loading="lazy" decoding="async" />
-              <div>
+              <div className="personal-project-copy">
                 <span className="self-development-eyebrow">PERSONAL PROJECT / {String(index + 1).padStart(2, "0")}</span>
                 <h3 id={`${project.slug}-title`}>{project.name}</h3>
+                {(project.debutWork || project.academySelection) && (
+                  <div className="personal-project-badges">
+                    {project.debutWork && <span className="personal-project-debut">DEBUT WORK</span>}
+                    {project.academySelection && <span className="personal-project-academy">VOODOO ACADEMY SELECTION</span>}
+                  </div>
+                )}
+                {project.academySelection && <p className="personal-project-academy-note">This project earned me a place in Voodoo Academy.</p>}
               </div>
             </header>
             <div className="personal-project-gallery-heading">

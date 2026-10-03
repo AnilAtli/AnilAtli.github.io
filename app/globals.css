@@ -911,6 +911,12 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--lime); outline-
 .self-development-projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; max-width: 1120px; margin: 0 auto; }
 .personal-project { min-width: 0; padding: clamp(14px, 1.7vw, 24px); border: 1px solid #d9e1eb; border-radius: 18px; background: #fff; }
 .personal-project-heading { display: flex; align-items: center; gap: clamp(12px, 1.5vw, 18px); }
+.personal-project-copy { min-width: 0; }
+.personal-project-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.personal-project-debut { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border: 1px solid #e7ce79; border-radius: 999px; color: #224caf; background: #ffe58b; font: 600 9px/1.2 var(--font-geist-mono), monospace; letter-spacing: .1em; }
+.personal-project-debut::before { content: ""; width: 4px; height: 4px; flex: 0 0 auto; border-radius: 50%; background: currentColor; }
+.personal-project-academy { display: inline-flex; align-items: center; padding: 6px 10px; border: 1px solid #84ce68; border-radius: 999px; color: #19452a; background: #b4ee8c; font: 600 9px/1.4 var(--font-geist-mono), monospace; letter-spacing: .06em; }
+.personal-project-academy-note { margin: 8px 0 0; color: #486082; font-size: 11px; line-height: 1.5; }
 .personal-project-icon { flex: 0 0 auto; display: block; width: clamp(48px, 5vw, 66px); height: auto; border-radius: 24%; box-shadow: 0 6px 14px rgba(21,43,80,.15); }
 .personal-project-heading h3 { margin: 6px 0 0; font-size: clamp(24px, 2.5vw, 32px); font-weight: 630; letter-spacing: -.055em; line-height: 1.05; }
 .personal-project-gallery-heading { margin: clamp(17px, 2vw, 28px) 0 9px; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #486082; font: 9px/1.5 var(--font-geist-mono), monospace; letter-spacing: .1em; }
