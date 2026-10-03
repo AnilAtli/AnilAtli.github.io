@@ -599,21 +599,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--lime); outline-
 }
 .profile-strip-copy, .profile-strip-person, .profile-strip-foot { position: relative; z-index: 1; }
 .profile-strip-copy { max-width: 870px; }
-.profile-availability {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: rgba(255, 255, 255, .66);
-  font: 9px var(--font-geist-mono), monospace;
-  letter-spacing: .12em;
-}
-.profile-availability i {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--lime);
-  box-shadow: 0 0 0 5px rgba(201, 255, 92, .1);
-}
 .profile-strip-copy h1 {
   margin: clamp(28px, 5vh, 58px) 0 30px;
   font-size: clamp(80px, 11vw, 176px);

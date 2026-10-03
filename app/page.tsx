@@ -206,8 +206,7 @@ export function Portfolio({ gddOnly = false }: { gddOnly?: boolean }) {
       {!gddOnly && <>
       <section className="profile-strip" id="top" aria-labelledby="intro-title">
         <div className="profile-strip-copy">
-          <span className="profile-availability"><i />AVAILABLE FOR SELECT OPPORTUNITIES</span>
-          <h1 id="intro-title">ANIL<br /><em>ATLI.</em></h1>
+          <h1 id="intro-title">ANIL<br /><em>ATLI</em></h1>
           <p>Game designer with 2+ years of experience, turning simple interactions into readable systems, satisfying decisions, and games built to scale.</p>
           <div className="profile-actions">
             <a href="#games">View selected work <b>↓</b></a>
