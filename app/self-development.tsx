@@ -17,9 +17,9 @@ const personalProjects: PersonalProject[] = [
     screenshotWidth: 739,
     screenshotHeight: 1599,
     screenshots: [
-      { src: "/self-development/kitty-path/level-13.webp", caption: "Level 13" },
-      { src: "/self-development/kitty-path/level-18.webp", caption: "Level 18" },
-      { src: "/self-development/kitty-path/level-30.webp", caption: "Level 30" },
+      { src: "/self-development/kitty-path/level-13-e39c016aa8.webp", caption: "Level 13" },
+      { src: "/self-development/kitty-path/level-18-5000396257.webp", caption: "Level 18" },
+      { src: "/self-development/kitty-path/level-30-244e283078.webp", caption: "Level 30" },
     ],
   },
   {
