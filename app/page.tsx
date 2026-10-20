@@ -12,9 +12,8 @@ type Game = {
   genre: string;
   publisher: string;
   artwork: string;
-  screenshot: string;
+  screenshots: string[];
   description: string;
-  focus: string;
   appStore: string;
   googlePlay: string;
 };
@@ -28,9 +27,8 @@ const games: Game[] = [
     genre: "Puzzle",
     publisher: "Rollic Games",
     artwork: "/drop-away.jpg",
-    screenshot: "/drop-away-hero.jpg",
+    screenshots: ["/launches/drop-away-01.jpg", "/launches/drop-away-02.jpg", "/launches/drop-away-03.jpg"],
     description: "A vibrant color-matching puzzle built around spatial reasoning, clear interactions, and progressively layered challenges.",
-    focus: "Puzzle systems · Level progression · Difficulty pacing",
     appStore: "https://apps.apple.com/us/app/drop-away-color-puzzle/id6648791704",
     googlePlay: "https://play.google.com/store/apps/details?id=com.brewgames.dropaway",
   },
@@ -42,9 +40,8 @@ const games: Game[] = [
     genre: "Strategy",
     publisher: "Voodoo",
     artwork: "/battle-bag.jpg",
-    screenshot: "/battle-bag-gdd/appstore-defeat.webp",
+    screenshots: ["/battle-bag-gdd/appstore-defeat.webp", "/battle-bag-gdd/appstore-boss.webp", "/battle-bag-gdd/appstore-loadout.webp"],
     description: "A tactical backpack strategy game where loadout placement, unit connections, and smart upgrades shape every auto-battle.",
-    focus: "Inventory strategy · Unit synergy · Combat balance",
     appStore: "https://apps.apple.com/us/app/battle-bag-war-zone/id6746075769",
     googlePlay: "https://play.google.com/store/apps/details?id=com.brewgames.battlebagwarzone",
   },
@@ -56,9 +53,8 @@ const games: Game[] = [
     genre: "Simulation",
     publisher: "Brew Games",
     artwork: "/miner-tycoon.png",
-    screenshot: "/miner-tycoon-hero.jpg",
+    screenshots: ["/launches/miner-tycoon-01.jpg", "/launches/miner-tycoon-02.jpg", "/launches/miner-tycoon-03.jpg"],
     description: "An explosive mining tycoon experience combining discovery, production chains, collection, and long-term progression.",
-    focus: "Tycoon progression · Economy design · Content systems",
     appStore: "https://apps.apple.com/us/app/miner-tycoon-big-dynamite/id1624886117",
     googlePlay: "https://play.google.com/store/apps/details?id=com.brewgames.minertycoonbigdynamite",
   },
@@ -228,37 +224,35 @@ export function Portfolio({ gddOnly = false }: { gddOnly?: boolean }) {
         </div>
       </section>
 
-      <section className="games" id="games">
-        <div className="section-intro global-launch-intro">
+      <section className="launches" id="games" aria-labelledby="launches-title">
+        <div className="launches-intro">
           <span>GLOBAL RELEASES / 3 TITLES</span>
-          <h2>GLOBAL LAUNCH GAMES<span>.</span></h2>
+          <h2 id="launches-title">GLOBAL<br />LAUNCHES<span>.</span></h2>
           <p>Published titles shaped around clear player decisions, satisfying feedback, and systems that hold up in production.</p>
         </div>
 
-        <div className="game-list">
+        <div className="launch-grid">
           {games.map((game) => (
-            <article className={`game-panel ${game.slug}`} key={game.slug} id={game.slug}>
-              <div className="game-info">
-                <div className="game-kicker"><span>{game.number}</span><span>{game.genre}</span><span className="publisher-name">{game.publisher}</span></div>
-                <div className="game-name-row"><img src={game.artwork} alt="" aria-hidden="true" /><h3>{game.name}</h3></div>
-                <h4>{game.subtitle}</h4>
-                <p>{game.description}</p>
-                <div className="game-focus">
-                  <span>ROLE</span>
-                  <strong>Game Designer</strong>
-                  <span className="focus-label">DESIGN FOCUS</span>
-                  <strong>{game.focus}</strong>
-                </div>
-                <div className="store-links">
-                  <a href={game.appStore} target="_blank" rel="noreferrer">App Store <b>↗</b></a>
-                  <a href={game.googlePlay} target="_blank" rel="noreferrer">Google Play <b>↗</b></a>
-                  {game.slug === "battle-bag" && <a href="/gdd">View GDD <b>↗</b></a>}
+            <article className="launch-card" key={game.slug} id={game.slug} aria-labelledby={`${game.slug}-title`}>
+              <div className="launch-meta"><span className="launch-publisher">{game.publisher}</span><span className="launch-status">GLOBAL RELEASE</span></div>
+              <div className="launch-heading">
+                <img src={game.artwork} alt="" width={64} height={64} loading="lazy" />
+                <div>
+                  <h3 id={`${game.slug}-title`}>{game.name}</h3>
+                  <p>{game.subtitle}</p>
                 </div>
               </div>
-              <div className={`game-stage game-stage-${game.slug}`}>
-                <div className="game-screenshot">
-                  <img src={game.screenshot} alt={`${game.name} gameplay screenshot`} />
-                </div>
+              <p className="launch-description">{game.description}</p>
+              <div className="launch-role">ROLE <strong>Game Designer</strong></div>
+              <div className="launch-shots" aria-label={`${game.name} App Store screenshots`}>
+                {game.screenshots.map((src, index) => (
+                  <img key={src} src={src} alt={`${game.name} — App Store screenshot ${index + 1}`} loading="lazy" decoding="async" />
+                ))}
+              </div>
+              <div className="launch-links" aria-label={`${game.name} links`}>
+                <a href={game.appStore} target="_blank" rel="noreferrer" aria-label={`${game.name} on the App Store`}>App Store <span aria-hidden="true">↗</span></a>
+                <a href={game.googlePlay} target="_blank" rel="noreferrer" aria-label={`${game.name} on Google Play`}>Google Play <span aria-hidden="true">↗</span></a>
+                {game.slug === "battle-bag" && <a className="launch-gdd" href="/gdd">View GDD <span aria-hidden="true">↗</span></a>}
               </div>
             </article>
           ))}
