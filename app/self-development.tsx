@@ -11,6 +11,18 @@ type PersonalProject = {
 
 const personalProjects: PersonalProject[] = [
   {
+    slug: "match-factory",
+    name: "Match Factory!",
+    icon: "/self-development/match-factory/icon-2fb8c1edd8.webp",
+    screenshotWidth: 739,
+    screenshotHeight: 1599,
+    screenshots: [
+      { src: "/self-development/match-factory/level-5-d368b2b6af.webp", caption: "Level 5" },
+      { src: "/self-development/match-factory/level-41-ba25cb70b9.webp", caption: "Level 41" },
+      { src: "/self-development/match-factory/level-77-9dd9b6b5dd.webp", caption: "Level 77" },
+    ],
+  },
+  {
     slug: "smash-royale",
     name: "Smash Royale",
     icon: "/self-development/smash-royale/icon-39a04a3f9d.webp",
