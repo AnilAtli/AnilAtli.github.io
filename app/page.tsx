@@ -70,6 +70,7 @@ type Prototype = {
 };
 
 const prototypes: Prototype[] = [
+  { id: "6821867888", name: "Foodfront: Kitchen Wars", artwork: "/prototypes/6821867888.jpg", appStore: "https://apps.apple.com/us/app/foodfront-kitchen-wars/id6821867888", role: "GAME DESIGNER" },
   { id: "6793429836", name: "Boulderoll: Cog Battle", artwork: "/prototypes/6793429836.jpg", appStore: "https://apps.apple.com/us/app/boulderoll-cog-battle/id6793429836", role: "GAME DESIGNER" },
   { id: "6801574921", name: "Warstack: Merge Squad", artwork: "/prototypes/6801574921.jpg", appStore: "https://apps.apple.com/us/app/warstack-merge-squad/id6801574921", role: "GAME DESIGNER" },
   { id: "6802639490", name: "Hexarena: Merge Defense", artwork: "/prototypes/6802639490.jpg", appStore: "https://apps.apple.com/us/app/hexarena-merge-defense/id6802639490", role: "GAME DESIGNER" },
@@ -94,7 +95,7 @@ const prototypes: Prototype[] = [
   { id: "6737980296", name: "Pipe And Pop", artwork: "/prototypes/6737980296.jpg", appStore: "https://apps.apple.com/tr/app/pipe-and-pop/id6737980296?l=tr", role: "GAME DEVELOPER" },
 ];
 
-const newestPrototypeIds = new Set(["6793429836", "6801574921", "6802639490"]);
+const newestPrototypeIds = new Set(["6821867888", "6793429836", "6801574921", "6802639490"]);
 
 const experience = [
   {
