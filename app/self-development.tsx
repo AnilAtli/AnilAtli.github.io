@@ -11,6 +11,18 @@ type PersonalProject = {
 
 const personalProjects: PersonalProject[] = [
   {
+    slug: "arrow-voxel",
+    name: "Arrow Voxel",
+    icon: "/self-development/arrow-voxel/icon-6e9cfd959a.webp",
+    screenshotWidth: 739,
+    screenshotHeight: 1599,
+    screenshots: [
+      { src: "/self-development/arrow-voxel/level-4-4a532dbd5f.webp", caption: "Level 4" },
+      { src: "/self-development/arrow-voxel/level-20-03b8fa078e.webp", caption: "Level 20" },
+      { src: "/self-development/arrow-voxel/level-26-36bdb8208c.webp", caption: "Level 26" },
+    ],
+  },
+  {
     slug: "match-factory",
     name: "Match Factory!",
     icon: "/self-development/match-factory/icon-2fb8c1edd8.webp",
