@@ -6,7 +6,6 @@
     "app/**/*.tsx"
   ],
   "exclude": [
-    "node_modules",
-    "app/api/analytics/**/*"
+    "node_modules"
   ]
 }

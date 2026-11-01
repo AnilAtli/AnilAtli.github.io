@@ -157,26 +157,6 @@ export function Portfolio({ gddOnly = false }: { gddOnly?: boolean }) {
     };
   }, [menuOpen]);
 
-  useEffect(() => {
-    if (window.location.hostname.endsWith("github.io")) return;
-
-    const sessionKey = "portfolio-location-visit-recorded";
-    if (window.sessionStorage.getItem(sessionKey)) return;
-
-    window.sessionStorage.setItem(sessionKey, "true");
-    void fetch("/api/analytics/visit", {
-      method: "POST",
-      keepalive: true,
-      credentials: "same-origin",
-    })
-      .then((response) => {
-        if (!response.ok) window.sessionStorage.removeItem(sessionKey);
-      })
-      .catch(() => {
-        window.sessionStorage.removeItem(sessionKey);
-      });
-  }, []);
-
   return (
     <main>
       <header className="topbar">
